@@ -7,7 +7,7 @@ const { exec } = require('child_process');
 // const productData = require('./zort/route/productRoute') ;
 
 const orderDataAll = require('./zort/data/Ins_order') ;
-const productDataAll = require('./zort/data/Ins_product') ;
+const productDataAll = require('./zort/data/Ins_product') ; 
 
 //Route Api bra bra
 //
