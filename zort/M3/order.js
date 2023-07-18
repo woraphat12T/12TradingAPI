@@ -24,14 +24,27 @@ router.post('/getOrder', async (req, res) => {
             res.json(data) 
         }
     }else{
-        const data = await Order.findAll({
-            attributes: ['id', 'saleschannel', 'orderdate', 'number', 'customerid', 'status', 'paymentstatus', 'amount', 'vatamount', 'shippingchannel', 'shippingamount', 'shippingstreetAddress', 'shippingsubdistrict', 'shippingdistrict', 'shippingprovince', 'shippingpostcode'],
-            where: {
-              createdatetimeString: {
-                [Op.like]: `%${reqDateCreate}%`
-              }
-            }
-          });
+        if(reqDateCreate == ''){
+            const data = await Order.findAll({
+                attributes: ['id', 'saleschannel', 'orderdate', 'number', 'customerid', 'status', 'paymentstatus', 'amount', 'vatamount', 'shippingchannel', 'shippingamount', 'shippingstreetAddress', 'shippingsubdistrict', 'shippingdistrict', 'shippingprovince', 'shippingpostcode'],
+                where: {
+                  statusprint: {
+                    [Op.like]: `%wait_print%`
+                  }
+                }
+              });
+        }else{
+            const data = await Order.findAll({
+                attributes: ['id', 'saleschannel', 'orderdate', 'number', 'customerid', 'status', 'paymentstatus', 'amount', 'vatamount', 'shippingchannel', 'shippingamount', 'shippingstreetAddress', 'shippingsubdistrict', 'shippingdistrict', 'shippingprovince', 'shippingpostcode'],
+                where: {
+                  createdatetimeString: {
+                    [Op.like]: `%${reqDateCreate}%`
+                  }
+                }
+              });
+            
+        }
+       
 
             const lorder = data.length ;
             const orders = [];

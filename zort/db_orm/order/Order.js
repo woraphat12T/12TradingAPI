@@ -56,7 +56,8 @@ const Order = sequelize.define('order', {
   totalproductamount:{type: DataTypes.STRING,collate: 'Thai_CI_AS',allowNull:true,},
   uniquenumber:{type: DataTypes.STRING,collate: 'Thai_CI_AS',allowNull:true,},
   properties:{type: DataTypes.STRING,collate: 'Thai_CI_AS',allowNull:true,},
-  isDeposit:{type: DataTypes.STRING,collate: 'Thai_CI_AS',allowNull:true,}
+  isDeposit:{type: DataTypes.STRING,collate: 'Thai_CI_AS',allowNull:true,},
+  statusprint:{type: DataTypes.STRING,collate: 'Thai_CI_AS',allowNull:true,}
 },{freezeTableName:true,timestamps:false,createdAt:false,updatedAt:false});
 
 const  OrderDetail = sequelize.define('orderDetail', {
